@@ -4,7 +4,7 @@ public class TestErrorB implements Database.Batchable<SObject> {
     }
 
     public void execute(Database.BatchableContext BC, List<SObject> scope) {
-        for (Integer k = 0; k < 10; k++) {
+        for (Integer k = 0; k < 1; k++) {
             executeLogic();
         }
     }
@@ -13,7 +13,7 @@ public class TestErrorB implements Database.Batchable<SObject> {
         try {
             Integer i = 2 / 0;
         } catch (Exception e) {
-            for (Integer j = 0; j < 140; j++) {
+            for (Integer j = 0; j < 20; j++) {
                 Triton.instance.addError(TritonTypes.Area.Accounts, e);
             }
             Triton.instance.flush();
